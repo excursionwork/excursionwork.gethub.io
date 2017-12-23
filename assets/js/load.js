@@ -97,6 +97,7 @@
 			   var email=$("#contact-email").val();
 			   var message=$("#contact-message").val();
 		        if(name !="" && email !="" && message !="" && isEmail(email)){
+				 $.post("http://formspree.io/contact@excursionwork.com","email="+email+"&message="+message,function( data ) {
 					   swal({
 						  position: 'center',
 						  type: 'success',
@@ -104,22 +105,24 @@
 						  showConfirmButton: false,
 						  timer: 2500
 						})	
-						
-					name="";
-					$("#contact-name").val("");
-					email="";
-					$("#contact-email").val("");
-					message="";
-					$("#contact-message").val("");						
-				}else{
-					   swal({
-						  position: 'center',
-						  type: 'error',
-						  title: 'Please !! check your from.',
-						  showConfirmButton: false,
-						  timer: 2500
-						})				
-				}	
+					
+						name="";
+						$("#contact-name").val("");
+						email="";
+						$("#contact-email").val("");
+						message="";
+						$("#contact-message").val("");	
+				 });	
+					
+			}else{
+				   swal({
+					  position: 'center',
+					  type: 'error',
+					  title: 'Please !! check your from.',
+					  showConfirmButton: false,
+					  timer: 2500
+					})				
+			}	
 
 					
 			});
